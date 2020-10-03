@@ -11,7 +11,7 @@ import { WordsStore } from "./store.js";
 
     WordsStore.set(words);
 
-    window.location.replace("/games.html");
+    window.location.replace("./games.html");
   } else {
     document.getElementById("code-form").removeAttribute("hidden");
   }
