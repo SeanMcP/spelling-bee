@@ -1,3 +1,6 @@
+// TODO: Find a better approach. This system won't work
+// with non-English characters.
+
 const LETTER_TO_SECRET = {
   a: "Q",
   b: "q",
@@ -35,7 +38,7 @@ const SECRET_TO_LETTER = Object.entries(LETTER_TO_SECRET).reduce(
   {}
 );
 
-function encrypt(array) {
+export function encrypt(array) {
   return array
     .map((word) => {
       let encoded = "";
@@ -48,7 +51,7 @@ function encrypt(array) {
     .join("-");
 }
 
-function decrypt(array) {
+export function decrypt(array) {
   return array.split("-").map((word) => {
     let encoded = "";
 
@@ -59,17 +62,3 @@ function decrypt(array) {
     return encoded;
   });
 }
-
-(async () => {
-  const words = ["cat", "dog", "monkey"];
-
-  const encrypted = encrypt(words);
-  const decrypted = decrypt(encrypted);
-
-  console.log({ encrypted, decrypted });
-
-  const usp = new URLSearchParams(window.location.search);
-  const code = usp.get("code");
-
-  console.log(decrypt(code));
-})();
