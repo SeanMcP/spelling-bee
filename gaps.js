@@ -1,14 +1,15 @@
 import { WordsStore } from "./store.js";
+import { shuffle } from "./utils.js";
 
 (() => {
+  const again = document.getElementById("again");
+  const end = document.getElementById("end");
   const output = document.getElementById("output");
   const wordForm = document.getElementById("word-form");
-  const words = WordsStore.get();
+  let words = shuffle(WordsStore.get());
   let index = 0;
 
   function renderWord() {
-    index = location.hash ? parseInt(location.hash.slice(1)) : index;
-    wordForm.action = '#' + (index + 1)
     output.innerHTML = "";
     const word = words[index];
     const gapCount = Math.floor(word.length / 2);
@@ -27,6 +28,9 @@ import { WordsStore } from "./store.js";
       if (gaps.includes(i)) {
         const input = document.createElement("input");
         input.setAttribute("aria-label", "missing letter");
+        input.style.width = "1ch";
+        input.maxLength = 1;
+        input.minLength = 1;
         // TODO: Display a better error message
         input.pattern = letter;
         output.appendChild(input);
@@ -35,6 +39,28 @@ import { WordsStore } from "./store.js";
       }
     }
   }
+
+  wordForm.addEventListener("submit", (event) => {
+    event.preventDefault();
+    const nextIndex = index + 1;
+    if (nextIndex < words.length) {
+      index++;
+      renderWord();
+      wordForm.tabIndex = 0;
+      wordForm.focus();
+    } else {
+      end.removeAttribute("hidden");
+      wordForm.tabIndex = -1;
+    }
+  });
+
+  again.addEventListener("click", () => {
+    end.hidden = true;
+    wordForm.focus();
+    index = 0;
+    words = shuffle(words);
+    renderWord();
+  });
 
   renderWord();
 })();
