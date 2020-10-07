@@ -1,5 +1,5 @@
 import { WordsStore } from "./store.js";
-import { shuffle } from "./utils.js";
+import { el, shuffle } from "./utils.js";
 
 (() => {
   const again = document.getElementById("again");
@@ -10,25 +10,29 @@ import { shuffle } from "./utils.js";
 
   function renderWords() {
     fields.innerHTML = "";
-    words.forEach((word) => {
+    words.forEach((word, i) => {
+      const id = `scramble-${i + 1}`
       let scrambledWord = word;
       while (scrambledWord === word) {
         scrambledWord = shuffle(word.split("")).join("");
       }
-      const field = document.createElement('div')
-      field.classList.add('field')
+      const field = el("div", { class: "field" });
 
-      const label = document.createElement('label')
-      label.innerHTML = `Scrambled <b>${scrambledWord}</b>`;
-      label.htmlFor = word
-      field.appendChild(label)
+      const label = el("label", {
+        htmlFor: id,
+        innerHTML: `Scrambled <b>${scrambledWord}</b>`,
+      });
+      field.appendChild(label);
 
-      const input = document.createElement('input')
-      input.pattern = word
-      input.id = word
-      field.appendChild(input)
+      const input = el("input", {
+        autocomplete: 'chrome-off',
+        id,
+        pattern: word,
+        required: true
+      });
+      field.appendChild(input);
 
-      fields.appendChild(field)
+      fields.appendChild(field);
     });
   }
 

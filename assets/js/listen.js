@@ -12,6 +12,7 @@ import { el, shuffle } from "./utils.js";
     fields.innerHTML = "";
     words.forEach((word, i) => {
       const number = i + 1
+      const id = `listen-${number}`
       let utterance = new SpeechSynthesisUtterance(word);
 
       const field = el("div", { class: "field" });
@@ -25,14 +26,14 @@ import { el, shuffle } from "./utils.js";
       field.appendChild(button);
 
       const label = el("label", {
-        htmlFor: number,
+        htmlFor: id,
         innerHTML: `Word #${number}`,
       });
       field.appendChild(label);
 
       const input = el("input", {
         autocomplete: 'chrome-off',
-        id: number,
+        id,
         pattern: word,
         required: true,
       });
