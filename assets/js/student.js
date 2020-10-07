@@ -10,8 +10,9 @@ import { WordsStore } from "./store.js";
     const words = decrypt(code);
 
     WordsStore.set(words);
-
-    window.location.replace(window.location.origin + "/practice.html");
+    
+    const { href } = location
+    location.replace(href.slice(0, href.lastIndexOf('/')) + '/practice.html')
   } else {
     document.getElementById("code-form").removeAttribute("hidden");
   }
