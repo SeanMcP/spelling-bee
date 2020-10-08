@@ -1,0 +1,48 @@
+/* ==== BASE ==== */
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+      Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+    margin: 0;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  
+  button,
+  input,
+  textarea {
+    font-family: inherit;
+    font-size: inherit;
+  }
+  
+  .visually-hidden {
+    clip: rect(0 0 0 0);
+    clip-path: inset(50%);
+    height: 1px;
+    overflow: hidden;
+    position: absolute;
+    white-space: nowrap;
+    width: 1px;
+  }
+
+  :root {
+    --gray050: hsl(220, 6%, 5%);
+    --gray100: hsl(220, 6%, 10%);
+    --gray200: hsl(220, 6%, 20%);
+    --gray300: hsl(220, 6%, 30%);
+    --gray400: hsl(220, 6%, 40%);
+    --gray500: hsl(220, 6%, 50%);
+    --gray600: hsl(220, 6%, 60%);
+    --gray700: hsl(220, 6%, 70%);
+    --gray800: hsl(220, 6%, 80%);
+    --gray900: hsl(220, 6%, 90%);
+    --gray950: hsl(220, 6%, 95%);
+  
+    --off-black: var(--gray050);
+    --off-white: var(--gray950);
+  
+    --blue: hsl(220, 70%, 44%);
+    --dark-blue: hsl(220, 74%, 33%);
+  }
+  
+  /* == END BASE == */

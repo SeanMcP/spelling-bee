@@ -12,7 +12,7 @@ import { WordsStore } from "./store.js";
     WordsStore.set(words);
     
     const { href } = location
-    location.replace(href.slice(0, href.lastIndexOf('/')) + '/practice.html')
+    location.replace(href.slice(0, href.lastIndexOf('student/')) + 'practice/')
   } else {
     document.getElementById("code-form").removeAttribute("hidden");
   }

@@ -1,0 +1,21 @@
+{
+  "name": "spelling-bee",
+  "version": "1.0.0",
+  "description": "🐝 Custom spelling exercises for every classroom",
+  "scripts": {
+    "build": "eleventy",
+    "start": "eleventy --serve"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SeanMcP/spelling-bee.git"
+  },
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/SeanMcP/spelling-bee/issues"
+  },
+  "homepage": "https://github.com/SeanMcP/spelling-bee#readme",
+  "devDependencies": {
+    "@11ty/eleventy": "^0.11.0"
+  }
+}
