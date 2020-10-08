@@ -1,7 +1,32 @@
-<form id="list-form">
-    <label for="list"> Enter your spelling list </label>
-    <small id="desc">One word per line</small>
-    <textarea aria-describedby="desc" name="list" id="list"></textarea>
-    <button>Create list</button>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Teacher - Spelling Bee</title>
+    <link rel="stylesheet" href="/spelling-bee/assets/css/styles.css">
+    
+  </head>
+  <body>
+    <header class="header">
+      <a class="home-link" href="/spelling-bee/"><span aria-label="Spelling bee" class="logo" role="img">🐝</span></a>
+    </header>
+    <main>
+        <h1 id="title">Teacher</h1>
+        <form id="list-form">
+    <div class="field">
+        <label for="list"> Enter your spelling list </label>
+        <small id="desc">One word per line</small>
+        <textarea aria-describedby="desc" name="list" id="list" rows="8"></textarea>
+    </div>
+    <div>
+        <button>Create list</button>
+    </div>
 </form>
 <div id="output"></div>
+
+    </main>
+  </body>
+  
+  <script src="/spelling-bee/assets/js/teacher.js" type="module"></script>
+</html>

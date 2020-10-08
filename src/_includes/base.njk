@@ -8,10 +8,11 @@
     {% if styles %}<link rel="stylesheet" href="{{ '/spelling-bee/assets/css/' + styles | url }}">{% endif %}
   </head>
   <body>
+    <header class="header">
+      <a class="home-link" href="{{ '/' | url }}"><span aria-label="Spelling bee" class="logo" role="img">🐝</span></a>
+    </header>
     <main>
-        <header class="header">
-          <a href="{{ '/' | url }}">Spelling Bee</a>
-        </header>
+        <h1 id="title">{{ title or 'Spelling Bee' }}</h1>
         {{ content | safe }}
     </main>
   </body>
