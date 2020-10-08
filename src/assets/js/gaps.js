@@ -1,5 +1,5 @@
 import { WordsStore } from "./store.js";
-import { shuffle } from "./utils.js";
+import { el, shuffle } from "./utils.js";
 
 (() => {
   const again = document.getElementById("again");
@@ -26,13 +26,13 @@ import { shuffle } from "./utils.js";
     for (let i = 0; i < word.length; i++) {
       const letter = word[i];
       if (gaps.includes(i)) {
-        const input = document.createElement("input");
-        input.setAttribute("aria-label", "missing letter");
-        input.style.width = "1ch";
-        input.maxLength = 1;
-        input.minLength = 1;
+        const input = el("input", {
+          "aria-label": "missing letter",
+          maxLength: 1,
+          minLength: 1,
+          pattern: letter
+        });
         // TODO: Display a better error message
-        input.pattern = letter;
         output.appendChild(input);
       } else {
         output.innerHTML += `<span>${letter}</span>`;

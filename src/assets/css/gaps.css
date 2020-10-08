@@ -1,0 +1,12 @@
+#output {
+  align-items: center;
+  display: flex;
+  font-size: 200%;
+  gap: 0.25rem;
+  justify-content: center;
+}
+
+#output input {
+  text-align: center;
+  width: 1.5ch;
+}
