@@ -12,7 +12,7 @@ import { encrypt } from "./crypt.js";
 
     document.getElementById("output").innerHTML = `
         <h2>Share this link with your students</h2>
-        <p><a href="./student.html?code=${encrypted}" target="_blank">${encrypted}</a></p>
+        <p><a href="../student/?code=${encrypted}" target="_blank">${encrypted}</a></p>
     `;
   });
 })();

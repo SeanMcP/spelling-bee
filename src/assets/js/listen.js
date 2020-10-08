@@ -11,13 +11,16 @@ import { el, shuffle } from "./utils.js";
   function renderWords() {
     fields.innerHTML = "";
     words.forEach((word, i) => {
-      const number = i + 1
-      const id = `listen-${number}`
+      const number = i + 1;
+      const id = `listen-${number}`;
       let utterance = new SpeechSynthesisUtterance(word);
 
       const field = el("div", { class: "field" });
 
-      const button = el("button", { textContent: "Listen" });
+      const button = el("button", {
+        "aria-label": `Listen to word ${number}`,
+        textContent: "Listen",
+      });
       button.addEventListener("click", (event) => {
         event.preventDefault();
         speechSynthesis.speak(utterance);
@@ -32,7 +35,7 @@ import { el, shuffle } from "./utils.js";
       field.appendChild(label);
 
       const input = el("input", {
-        autocomplete: 'chrome-off',
+        autocomplete: "chrome-off",
         id,
         pattern: word,
         required: true,

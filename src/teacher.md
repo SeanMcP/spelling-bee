@@ -10,8 +10,6 @@ script: teacher.js
         <small id="desc">One word per line</small>
         <textarea aria-describedby="desc" name="list" id="list" rows="8"></textarea>
     </div>
-    <div>
-        <button>Create list</button>
-    </div>
+    <button class="js-start">Create list</button>
 </form>
 <div id="output"></div>

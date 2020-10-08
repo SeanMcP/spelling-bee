@@ -1,0 +1,13 @@
+.field {
+  grid-template-columns: auto max-content;
+}
+
+.field label {
+  grid-column: 1 / span 2;
+  grid-row: 1;
+}
+
+.field button {
+  grid-column: 2;
+  grid-row: 2;
+}

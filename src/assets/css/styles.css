@@ -122,3 +122,7 @@ button:focus,
 button:hover {
   background-color: var(--primary-hover);
 }
+
+.js-start {
+  justify-self: start;
+}

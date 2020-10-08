@@ -9,5 +9,5 @@ script: student.js
         <b>List code</b>
         <input type="text" name="code" />
     </label>
-    <button>Go</button>
+    <button class="js-start">Go</button>
 </form>
