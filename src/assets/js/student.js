@@ -1,18 +1,28 @@
-import { decrypt } from "./crypt.js";
 import { WordsStore } from "./store.js";
 
-// TODO: Remove this example FNQj-QjjN-FQJ-QqqB
-(() => {
+(async () => {
   const usp = new URLSearchParams(window.location.search);
-  const code = usp.get("code");
+  const v1 = usp.get("v1");
 
-  if (code) {
-    const words = decrypt(code);
+  if (v1) {
+    try {
+      const response = await fetch("https://hash-browns.seanmcp.repl.co/" + v1);
 
-    WordsStore.set(words);
-    
-    const { href } = location
-    location.replace(href.slice(0, href.lastIndexOf('student/')) + 'practice/')
+      if (!response.ok) throw new Error("Failed request");
+
+      const { data } = await response.json();
+
+      WordsStore.set(data);
+
+      const { href } = location;
+
+      location.replace(
+        href.slice(0, href.lastIndexOf("student/")) + "practice/"
+      );
+    } catch (err) {
+      console.error(err);
+      alert("Uh oh! Something went wrong.");
+    }
   } else {
     document.getElementById("code-form").removeAttribute("hidden");
   }
