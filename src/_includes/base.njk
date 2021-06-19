@@ -17,6 +17,5 @@
         {{ content | safe }}
     </main>
   </body>
-  {{ pathPrefix | log }}
   {% if script %}<script src="{{ '/spelling-bee/assets/js/' + script | url }}" type="module"></script>{% endif %}
 </html>
