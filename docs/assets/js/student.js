@@ -1,18 +1,16 @@
-import { decrypt } from "./crypt.js";
 import { WordsStore } from "./store.js";
 
-// TODO: Remove this example FNQj-QjjN-FQJ-QqqB
 (() => {
   const usp = new URLSearchParams(window.location.search);
   const code = usp.get("code");
 
   if (code) {
-    const words = decrypt(code);
+    const words = code.split("-");
 
     WordsStore.set(words);
-    
-    const { href } = location
-    location.replace(href.slice(0, href.lastIndexOf('student/')) + 'practice/')
+
+    const { href } = location;
+    location.replace(href.slice(0, href.lastIndexOf("student/")) + "practice/");
   } else {
     document.getElementById("code-form").removeAttribute("hidden");
   }
